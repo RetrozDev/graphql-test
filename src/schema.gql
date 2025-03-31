@@ -1,0 +1,20 @@
+# Type 
+
+type User {
+    id: ID! # Unique identifier for the user Non Nullable
+    firstname: String! # First name of the user Non Nullable
+    lastname: String! # Last name of the user Non Nullable
+    email: String! # Email address of the user Non Nullable
+    age: Int # Age of the user Nullable
+}
+
+type Query {
+    users: [User!]! # Fetch all users
+    user(id: ID!): User! # Fetch a single user by ID Non Nullable
+}
+
+type Mutation {
+    createUser(firstname: String!, lastname: String!, email: String!, age: Int): User! # Create a new user Non Nullable
+    updateUser(id: ID!, firstname: String, lastname: String, email: String, age: Int): User! # Update an existing user Non Nullable
+    deleteUser(id: ID!): Boolean! # Delete a user by ID Non Nullable
+}
